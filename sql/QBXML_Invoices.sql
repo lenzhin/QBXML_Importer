@@ -1,5 +1,14 @@
-USE QBXML
+USE [QBXML]
 GO
+/****** Object:  StoredProcedure [dbo].[04CreateQBXMLAirInvoices]    Script Date: 12/11/2015 3:32:39 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[04CreateQBXMLInvoices]
+AS
+BEGIN
+	SET NOCOUNT ON;
 SELECT DISTINCT 1 AS Tag,
        NULL AS Parent,
        'stopOnError' AS [QBXMLMsgsRq!1!onError],
@@ -21,127 +30,13 @@ SELECT DISTINCT 1 AS Tag,
 	   NULL AS [ClassRef!16!FullName!element],
 	   NULL AS [Other1!17!!element],
 	   NULL AS [Other2!18!!element]
-FROM   BillingData
+FROM   BillingData 
+WHERE ServiceTeam LIKE 'AIR'
 UNION ALL
 SELECT DISTINCT 2 AS Tag,
        1 AS Parent,
 	   NULL AS [QBXMLMsgsRq!1!onError],
 	   0 AS [InvoiceAddRq!2!requestID],
-	   NULL AS [InvoiceAdd!3!InvoiceAdd!element],
-	   CompanyName AS [CustomerRef!4!FullName!element],
-	   NULL AS [TemplateRef!5!FullName!element],
-	   NULL AS [TxnDate!6!!element],
-	   NULL AS [RefNumber!7!!element],
-	   NULL AS [SalesRepRef!8!FullName!element],
-	   NULL AS [IsToBePrinted!9!!element],
-	   NULL AS [IsToBeEmailed!10!!element],
-	   NULL AS [InvoiceLineAdd!11!],
-	   NULL AS [InvoiceLineAdd!11!Sort!hide],
-	   NULL AS [ItemRef!12!FullName!element],
-	   NULL AS [Desc!13!!element],
-	   NULL AS [Quantity!14!!element],
-	   NULL AS [Rate!15!!element],
-	   NULL AS [ClassRef!16!FullName!element],
-	   NULL AS [Other1!17!!element],
-	   NULL AS [Other2!18!!element]
-FROM   BillingData
-UNION ALL
-SELECT DISTINCT 3 AS Tag,
-       2 AS Parent,
-	   NULL AS [QBXMLMsgsRq!1!onError],
-	   NULL AS [InvoiceAddRq!2!requestID],
-	   NULL AS [InvoiceAdd!3!InvoiceAdd!element],
-	   CompanyName AS [CustomerRef!4!FullName!element],
-	   NULL AS [TemplateRef!5!FullName!element],
-	   NULL AS [TxnDate!6!!element],
-	   NULL AS [RefNumber!7!!element],
-	   NULL AS [SalesRepRef!8!FullName!element],
-	   NULL AS [IsToBePrinted!9!!element],
-	   NULL AS [IsToBeEmailed!10!!element],
-	   NULL AS [InvoiceLineAdd!11!],
-	   NULL AS [InvoiceLineAdd!11!Sort!hide],
-	   NULL AS [ItemRef!12!FullName!element],
-	   NULL AS [Desc!13!!element],
-	   NULL AS [Quantity!14!!element],
-	   NULL AS [Rate!15!!element],
-	   NULL AS [ClassRef!16!FullName!element],
-	   NULL AS [Other1!17!!element],
-	   NULL AS [Other2!18!!element]
-FROM   BillingData
-UNION ALL
-SELECT DISTINCT 4 AS Tag,
-       3 AS Parent,
-	   NULL AS [QBXMLMsgsRq!1!onError],
-	   NULL AS [InvoiceAddRq!2!requestID],
-	   NULL AS [InvoiceAdd!3!InvoiceAdd!element],
-	   CompanyName AS [CustomerRef!4!FullName!element],
-	   NULL AS [TemplateRef!5!FullName!element],
-	   NULL AS [TxnDate!6!!element],
-	   NULL AS [RefNumber!7!!element],
-	   NULL AS [SalesRepRef!8!FullName!element],
-	   NULL AS [IsToBePrinted!9!!element],
-	   NULL AS [IsToBeEmailed!10!!element],
-	   NULL AS [InvoiceLineAdd!11!],
-	   NULL AS [InvoiceLineAdd!11!Sort!hide],
-	   NULL AS [ItemRef!12!FullName!element],
-	   NULL AS [Desc!13!!element],
-	   NULL AS [Quantity!14!!element],
-	   NULL AS [Rate!15!!element],
-	   NULL AS [ClassRef!16!FullName!element],
-	   NULL AS [Other1!17!!element],
-	   NULL AS [Other2!18!!element]
-		FROM   BillingData
-		UNION ALL
-SELECT DISTINCT 5 AS Tag,
-       3 AS Parent,
-	   NULL AS [QBXMLMsgsRq!1!onError],
-	   NULL AS [InvoiceAddRq!2!requestID],
-	   NULL AS [InvoiceAdd!3!InvoiceAdd!element],
-	   CompanyName AS [CustomerRef!4!FullName!element],
-	   TemplateRef AS [TemplateRef!5!FullName!element],
-	   NULL AS [TxnDate!6!!element],
-	   NULL AS [RefNumber!7!!element],
-	   NULL AS [SalesRepRef!8!FullName!element],
-	   NULL AS [IsToBePrinted!9!!element],
-	   NULL AS [IsToBeEmailed!10!!element],
-	   NULL AS [InvoiceLineAdd!11!],
-	   NULL AS [InvoiceLineAdd!11!Sort!hide],
-	   NULL AS [ItemRef!12!FullName!element],
-	   NULL AS [Desc!13!!element],
-	   NULL AS [Quantity!14!!element],
-	   NULL AS [Rate!15!!element],
-	   NULL AS [ClassRef!16!FullName!element],
-	   NULL AS [Other1!17!!element],
-	   NULL AS [Other2!18!!element]
-		FROM   BillingData
-		UNION ALL
-		SELECT DISTINCT 6 AS Tag,
-       3 AS Parent,
-	   NULL AS [QBXMLMsgsRq!1!onError],
-	   NULL AS [InvoiceAddRq!2!requestID],
-	   NULL AS [InvoiceAdd!3!InvoiceAdd!element],
-	   CompanyName AS [CustomerRef!4!FullName!element],
-	   NULL AS [TemplateRef!5!FullName!element],
-	   InvoiceDate AS [TxnDate!6!!element],
-	   NULL AS [RefNumber!6!!element],
-	   NULL AS [SalesRepRef!8!FullName!element],
-	   NULL AS [IsToBePrinted!9!!element],
-	   NULL AS [IsToBeEmailed!10!!element],
-	   NULL AS [InvoiceLineAdd!11!],
-	   NULL AS [InvoiceLineAdd!11!Sort!hide],
-	   NULL AS [ItemRef!12!FullName!element],
-	   NULL AS [Desc!13!!element],
-	   NULL AS [Quantity!14!!element],
-	   NULL AS [Rate!15!!element],
-	   NULL AS [ClassRef!16!FullName!element],
-	   NULL AS [Other1!17!!element],
-	   NULL AS [Other2!18!!element]
-		FROM   BillingData
-		UNION ALL
-SELECT DISTINCT 7 AS Tag,
-       3 AS Parent,
-	   NULL AS [QBXMLMsgsRq!1!onError],
-	   NULL AS [InvoiceAddRq!2!requestID],
 	   NULL AS [InvoiceAdd!3!InvoiceAdd!element],
 	   CompanyName AS [CustomerRef!4!FullName!element],
 	   NULL AS [TemplateRef!5!FullName!element],
@@ -159,17 +54,138 @@ SELECT DISTINCT 7 AS Tag,
 	   NULL AS [ClassRef!16!FullName!element],
 	   NULL AS [Other1!17!!element],
 	   NULL AS [Other2!18!!element]
-		FROM   BillingData
-		UNION ALL
-SELECT DISTINCT 8 AS Tag,
-       3 AS Parent,
+FROM   BillingData 
+WHERE ServiceTeam LIKE 'AIR'
+UNION ALL
+SELECT DISTINCT 3 AS Tag,
+       2 AS Parent,
 	   NULL AS [QBXMLMsgsRq!1!onError],
-	   NULL AS [InvoiceAddRq!2!requestID],
+	   0 AS [InvoiceAddRq!2!requestID],
 	   NULL AS [InvoiceAdd!3!InvoiceAdd!element],
 	   CompanyName AS [CustomerRef!4!FullName!element],
 	   NULL AS [TemplateRef!5!FullName!element],
 	   NULL AS [TxnDate!6!!element],
-	   NULL AS [RefNumber!7!!element],
+	   InvoiceNumber AS [RefNumber!7!!element],
+	   NULL AS [SalesRepRef!8!FullName!element],
+	   NULL AS [IsToBePrinted!9!!element],
+	   NULL AS [IsToBeEmailed!10!!element],
+	   NULL AS [InvoiceLineAdd!11!],
+	   NULL AS [InvoiceLineAdd!11!Sort!hide],
+	   NULL AS [ItemRef!12!FullName!element],
+	   NULL AS [Desc!13!!element],
+	   NULL AS [Quantity!14!!element],
+	   NULL AS [Rate!15!!element],
+	   NULL AS [ClassRef!16!FullName!element],
+	   NULL AS [Other1!17!!element],
+	   NULL AS [Other2!18!!element]
+FROM   BillingData 
+WHERE ServiceTeam LIKE 'AIR'
+UNION ALL
+SELECT DISTINCT 4 AS Tag,
+       3 AS Parent,
+	   NULL AS [QBXMLMsgsRq!1!onError],
+	   0 AS [InvoiceAddRq!2!requestID],
+	   NULL AS [InvoiceAdd!3!InvoiceAdd!element],
+	   CompanyName AS [CustomerRef!4!FullName!element],
+	   NULL AS [TemplateRef!5!FullName!element],
+	   NULL AS [TxnDate!6!!element],
+	   InvoiceNumber AS [RefNumber!7!!element],
+	   NULL AS [SalesRepRef!8!FullName!element],
+	   NULL AS [IsToBePrinted!9!!element],
+	   NULL AS [IsToBeEmailed!10!!element],
+	   NULL AS [InvoiceLineAdd!11!],
+	   NULL AS [InvoiceLineAdd!11!Sort!hide],
+	   NULL AS [ItemRef!12!FullName!element],
+	   NULL AS [Desc!13!!element],
+	   NULL AS [Quantity!14!!element],
+	   NULL AS [Rate!15!!element],
+	   NULL AS [ClassRef!16!FullName!element],
+	   NULL AS [Other1!17!!element],
+	   NULL AS [Other2!18!!element]
+FROM   BillingData 
+WHERE ServiceTeam LIKE 'AIR'
+UNION ALL
+SELECT DISTINCT 5 AS Tag,
+       3 AS Parent,
+	   NULL AS [QBXMLMsgsRq!1!onError],
+	   0 AS [InvoiceAddRq!2!requestID],
+	   NULL AS [InvoiceAdd!3!InvoiceAdd!element],
+	   CompanyName AS [CustomerRef!4!FullName!element],
+	   TemplateRef AS [TemplateRef!5!FullName!element],
+	   NULL AS [TxnDate!6!!element],
+	   InvoiceNumber AS [RefNumber!7!!element],
+	   NULL AS [SalesRepRef!8!FullName!element],
+	   NULL AS [IsToBePrinted!9!!element],
+	   NULL AS [IsToBeEmailed!10!!element],
+	   NULL AS [InvoiceLineAdd!11!],
+	   NULL AS [InvoiceLineAdd!11!Sort!hide],
+	   NULL AS [ItemRef!12!FullName!element],
+	   NULL AS [Desc!13!!element],
+	   NULL AS [Quantity!14!!element],
+	   NULL AS [Rate!15!!element],
+	   NULL AS [ClassRef!16!FullName!element],
+	   NULL AS [Other1!17!!element],
+	   NULL AS [Other2!18!!element]
+FROM   BillingData 
+WHERE ServiceTeam LIKE 'AIR'
+UNION ALL
+SELECT DISTINCT 6 AS Tag,
+       3 AS Parent,
+	   NULL AS [QBXMLMsgsRq!1!onError],
+	   0 AS [InvoiceAddRq!2!requestID],
+	   NULL AS [InvoiceAdd!3!InvoiceAdd!element],
+	   CompanyName AS [CustomerRef!4!FullName!element],
+	   NULL AS [TemplateRef!5!FullName!element],
+	   (SELECT CONVERT(VARCHAR(10), InvoiceDate, 120))  AS [TxnDate!6!!element],
+	   InvoiceNumber AS [RefNumber!6!!element],
+	   NULL AS [SalesRepRef!8!FullName!element],
+	   NULL AS [IsToBePrinted!9!!element],
+	   NULL AS [IsToBeEmailed!10!!element],
+	   NULL AS [InvoiceLineAdd!11!],
+	   NULL AS [InvoiceLineAdd!11!Sort!hide],
+	   NULL AS [ItemRef!12!FullName!element],
+	   NULL AS [Desc!13!!element],
+	   NULL AS [Quantity!14!!element],
+	   NULL AS [Rate!15!!element],
+	   NULL AS [ClassRef!16!FullName!element],
+	   NULL AS [Other1!17!!element],
+	   NULL AS [Other2!18!!element]
+FROM   BillingData 
+WHERE ServiceTeam LIKE 'AIR'
+UNION ALL
+SELECT DISTINCT 7 AS Tag,
+       3 AS Parent,
+	   NULL AS [QBXMLMsgsRq!1!onError],
+	   0 AS [InvoiceAddRq!2!requestID],
+	   NULL AS [InvoiceAdd!3!InvoiceAdd!element],
+	   CompanyName AS [CustomerRef!4!FullName!element],
+	   NULL AS [TemplateRef!5!FullName!element],
+	   NULL AS [TxnDate!6!!element],
+	   InvoiceNumber AS [RefNumber!7!!element],
+	   NULL AS [SalesRepRef!8!FullName!element],
+	   NULL AS [IsToBePrinted!9!!element],
+	   NULL AS [IsToBeEmailed!10!!element],
+	   NULL AS [InvoiceLineAdd!11!],
+	   NULL AS [InvoiceLineAdd!11!Sort!hide],
+	   NULL AS [ItemRef!12!FullName!element],
+	   NULL AS [Desc!13!!element],
+	   NULL AS [Quantity!14!!element],
+	   NULL AS [Rate!15!!element],
+	   NULL AS [ClassRef!16!FullName!element],
+	   NULL AS [Other1!17!!element],
+	   NULL AS [Other2!18!!element]
+FROM   BillingData 
+WHERE ServiceTeam LIKE 'AIR'
+UNION ALL
+SELECT DISTINCT 8 AS Tag,
+       3 AS Parent,
+	   NULL AS [QBXMLMsgsRq!1!onError],
+	   0 AS [InvoiceAddRq!2!requestID],
+	   NULL AS [InvoiceAdd!3!InvoiceAdd!element],
+	   CompanyName AS [CustomerRef!4!FullName!element],
+	   NULL AS [TemplateRef!5!FullName!element],
+	   NULL AS [TxnDate!6!!element],
+	   InvoiceNumber AS [RefNumber!7!!element],
 	   ServiceTeam AS [SalesRepRef!8!FullName!element],
 	   NULL AS [IsToBePrinted!9!!element],
 	   NULL AS [IsToBeEmailed!10!!element],
@@ -182,17 +198,18 @@ SELECT DISTINCT 8 AS Tag,
 	   NULL AS [ClassRef!16!FullName!element],
 	   NULL AS [Other1!17!!element],
 	   NULL AS [Other2!18!!element]
-		FROM   BillingData
-		UNION ALL
-		SELECT DISTINCT 9 AS Tag,
+FROM   BillingData 
+WHERE ServiceTeam LIKE 'AIR'
+UNION ALL
+SELECT DISTINCT 9 AS Tag,
        3 AS Parent,
 	   NULL AS [QBXMLMsgsRq!1!onError],
-	   NULL AS [InvoiceAddRq!2!requestID],
+	   0 AS [InvoiceAddRq!2!requestID],
 	   NULL AS [InvoiceAdd!3!InvoiceAdd!element],
 	   CompanyName AS [CustomerRef!4!FullName!element],
 	   NULL AS [TemplateRef!5!FullName!element],
 	   NULL AS [TxnDate!6!!element],
-	   NULL AS [RefNumber!7!!element],
+	   InvoiceNumber AS [RefNumber!7!!element],
 	   NULL AS [SalesRepRef!8!FullName!element],
 	   Printed AS [IsToBePrinted!9!!element],
 	   NULL AS [IsToBeEmailed!10!!element],
@@ -205,17 +222,18 @@ SELECT DISTINCT 8 AS Tag,
 	   NULL AS [ClassRef!16!FullName!element],
 	   NULL AS [Other1!17!!element],
 	   NULL AS [Other2!18!!element]
-		FROM   BillingData
-		UNION ALL
-		SELECT DISTINCT 10 AS Tag,
+FROM   BillingData 
+WHERE ServiceTeam LIKE 'AIR'
+UNION ALL
+SELECT DISTINCT 10 AS Tag,
        3 AS Parent,
 	   NULL AS [QBXMLMsgsRq!1!onError],
-	   NULL AS [InvoiceAddRq!2!requestID],
+	   0 AS [InvoiceAddRq!2!requestID],
 	   NULL AS [InvoiceAdd!3!InvoiceAdd!element],
 	   CompanyName AS [CustomerRef!4!FullName!element],
 	   NULL AS [TemplateRef!5!FullName!element],
 	   NULL AS [TxnDate!6!!element],
-	   NULL AS [RefNumber!7!!element],
+	   InvoiceNumber AS [RefNumber!7!!element],
 	   NULL AS [SalesRepRef!8!FullName!element],
 	   NULL AS [IsToBePrinted!9!!element],
 	   Emailed AS [IsToBeEmailed!10!!element],
@@ -228,17 +246,18 @@ SELECT DISTINCT 8 AS Tag,
 	   NULL AS [ClassRef!16!FullName!element],
 	   NULL AS [Other1!17!!element],
 	   NULL AS [Other2!18!!element]
-		FROM   BillingData
-		UNION ALL
+FROM   BillingData 
+WHERE ServiceTeam LIKE 'AIR'
+UNION ALL
 SELECT 11 AS Tag,
        3 AS Parent,
 	   NULL AS [QBXMLMsgsRq!1!onError],
-	   NULL AS [InvoiceAddRq!2!requestID],
+	   0 AS [InvoiceAddRq!2!requestID],
 	   NULL AS [InvoiceAdd!3!InvoiceAdd!element],
 	   CompanyName AS [CustomerRef!4!FullName!element],
 	   NULL AS [TemplateRef!5!FullName!element],
 	   NULL AS [TxnDate!6!!element],
-	   NULL AS [RefNumber!7!!element],
+	   InvoiceNumber AS [RefNumber!7!!element],
 	   NULL AS [SalesRepRef!8!FullName!element],
 	   NULL AS [IsToBePrinted!9!!element],
 	   NULL AS [IsToBeEmailed!10!!element],
@@ -251,17 +270,18 @@ SELECT 11 AS Tag,
 	   NULL AS [ClassRef!16!FullName!element],
 	   NULL AS [Other1!17!!element],
 	   NULL AS [Other2!18!!element]
-		FROM   BillingData
-		UNION ALL
+FROM   BillingData 
+WHERE ServiceTeam LIKE 'AIR'
+UNION ALL
 SELECT  12 AS Tag,
         11 AS Parent,
 	   NULL AS [QBXMLMsgsRq!1!onError],
-	   NULL AS [InvoiceAddRq!2!requestID],
+	   0 AS [InvoiceAddRq!2!requestID],
 	   NULL AS [InvoiceAdd!3!InvoiceAdd!element],
 	   CompanyName AS [CustomerRef!4!FullName!element],
 	   NULL AS [TemplateRef!5!FullName!element],
 	   NULL AS [TxnDate!6!!element],
-	   NULL AS [RefNumber!7!!element],
+	   InvoiceNumber AS [RefNumber!7!!element],
 	   NULL AS [SalesRepRef!8!FullName!element],
 	   NULL AS [IsToBePrinted!9!!element],
 	   NULL AS [IsToBeEmailed!10!!element],
@@ -274,17 +294,18 @@ SELECT  12 AS Tag,
 	   NULL AS [ClassRef!16!FullName!element],
 	   NULL AS [Other1!17!!element],
 	   NULL AS [Other2!18!!element]
-		FROM   BillingData
-		UNION ALL
+FROM   BillingData 
+WHERE ServiceTeam LIKE 'AIR'
+UNION ALL
 SELECT 13 AS Tag,
        11 AS Parent,
 	   NULL AS [QBXMLMsgsRq!1!onError],
-	   NULL AS [InvoiceAddRq!2!requestID],
+	   0 AS [InvoiceAddRq!2!requestID],
 	   NULL AS [InvoiceAdd!3!InvoiceAdd!element],
 	   CompanyName AS [CustomerRef!4!FullName!element],
 	   NULL AS [TemplateRef!5!FullName!element],
 	   NULL AS [TxnDate!6!!element],
-	   NULL AS [RefNumber!7!!element],
+	   InvoiceNumber AS [RefNumber!7!!element],
 	   NULL AS [SalesRepRef!8!FullName!element],
 	   NULL AS [IsToBePrinted!9!!element],
 	   NULL AS [IsToBeEmailed!10!!element],
@@ -297,17 +318,18 @@ SELECT 13 AS Tag,
 	   NULL AS [ClassRef!16!FullName!element],
 	   NULL AS [Other1!16!!element],
 	   NULL AS [Other2!17!!element]
-		FROM   BillingData
-		UNION ALL
+FROM   BillingData 
+WHERE ServiceTeam LIKE 'AIR'
+UNION ALL
 SELECT 14 AS Tag,
        11 AS Parent,
 	   NULL AS [QBXMLMsgsRq!1!onError],
-	   NULL AS [InvoiceAddRq!2!requestID],
+	   0 AS [InvoiceAddRq!2!requestID],
 	   NULL AS [InvoiceAdd!3!InvoiceAdd!element],
 	   CompanyName AS [CustomerRef!4!FullName!element],
 	   NULL AS [TemplateRef!5!FullName!element],
 	   NULL AS [TxnDate!6!!element],
-	   NULL AS [RefNumber!7!!element],
+	   InvoiceNumber AS [RefNumber!7!!element],
 	   NULL AS [SalesRepRef!8!FullName!element],
 	   NULL AS [IsToBePrinted!9!!element],
 	   NULL AS [IsToBeEmailed!10!!element],
@@ -320,17 +342,18 @@ SELECT 14 AS Tag,
 	   NULL AS [ClassRef!16!FullName!element],
 	   NULL AS [Other1!17!!element],
 	   NULL AS [Other2!18!!element]
-	   FROM BillingData
-	   UNION ALL
+FROM BillingData 
+WHERE ServiceTeam LIKE 'AIR'
+UNION ALL
 SELECT DISTINCT 15 AS Tag,
        11 AS Parent,
 	   NULL AS [QBXMLMsgsRq!1!onError],
-	   NULL AS [InvoiceAddRq!2!requestID],
+	   0 AS [InvoiceAddRq!2!requestID],
 	   NULL AS [InvoiceAdd!3!InvoiceAdd!element],
 	   CompanyName AS [CustomerRef!4!FullName!element],
 	   NULL AS [TemplateRef!5!FullName!element],
 	   NULL AS [TxnDate!6!!element],
-	   NULL AS [RefNumber!7!!element],
+	   InvoiceNumber AS [RefNumber!7!!element],
 	   NULL AS [SalesRepRef!8!FullName!element],
 	   NULL AS [IsToBePrinted!9!!element],
 	   NULL AS [IsToBeEmailed!10!!element],
@@ -343,17 +366,18 @@ SELECT DISTINCT 15 AS Tag,
 	   NULL AS [ClassRef!16!FullName!element],
 	   NULL AS [Other1!17!!element],
 	   NULL AS [Other2!18!!element]
-	   FROM BillingData
-	    UNION ALL
+FROM BillingData 
+WHERE ServiceTeam LIKE 'AIR'
+UNION ALL
 SELECT DISTINCT 16 AS Tag,
        11 AS Parent,
 	   NULL AS [QBXMLMsgsRq!1!onError],
-	   NULL AS [InvoiceAddRq!2!requestID],
+	   0 AS [InvoiceAddRq!2!requestID],
 	   NULL AS [InvoiceAdd!3!InvoiceAdd!element],
 	   CompanyName AS [CustomerRef!4!FullName!element],
 	   NULL AS [TemplateRef!5!FullName!element],
 	   NULL AS [TxnDate!6!!element],
-	   NULL AS [RefNumber!7!!element],
+	   InvoiceNumber AS [RefNumber!7!!element],
 	   NULL AS [SalesRepRef!8!FullName!element],
 	   NULL AS [IsToBePrinted!9!!element],
 	   NULL AS [IsToBeEmailed!10!!element],
@@ -366,17 +390,18 @@ SELECT DISTINCT 16 AS Tag,
 	   Department AS [ClassRef!16!FullName!element],
 	   NULL AS [Other1!17!!element],
 	   NULL AS [Other2!18!!element]
-	   FROM BillingData
-	   UNION ALL
+FROM BillingData 
+WHERE ServiceTeam LIKE 'AIR'
+UNION ALL
 SELECT DISTINCT 17 AS Tag,
        11 AS Parent,
 	   NULL AS [QBXMLMsgsRq!1!onError],
-	   NULL AS [InvoiceAddRq!2!requestID],
+	   0 AS [InvoiceAddRq!2!requestID],
 	   NULL AS [InvoiceAdd!3!InvoiceAdd!element],
 	   CompanyName AS [CustomerRef!4!FullName!element],
 	   NULL AS [TemplateRef!5!FullName!element],
 	   NULL AS [TxnDate!6!!element],
-	   NULL AS [RefNumber!7!!element],
+	   InvoiceNumber AS [RefNumber!7!!element],
 	   NULL AS [SalesRepRef!8!FullName!element],
 	   NULL AS [IsToBePrinted!9!!element],
 	   NULL AS [IsToBeEmailed!10!!element],
@@ -389,17 +414,18 @@ SELECT DISTINCT 17 AS Tag,
 	   NULL AS [ClassRef!16!FullName!element],
 	   Payment AS [Other1!17!!element],
 	   NULL AS [Other2!18!!element]
-	   FROM BillingData
-	   UNION ALL
+FROM BillingData 
+WHERE ServiceTeam LIKE 'AIR'
+UNION ALL
 SELECT DISTINCT 18 AS Tag,
        11 AS Parent,
 	   NULL AS [QBXMLMsgsRq!1!onError],
-	   NULL AS [InvoiceAddRq!2!requestID],
+	   0 AS [InvoiceAddRq!2!requestID],
 	   NULL AS [InvoiceAdd!3!InvoiceAdd!element],
 	   CompanyName AS [CustomerRef!4!FullName!element],
 	   NULL AS [TemplateRef!5!FullName!element],
 	   NULL AS [TxnDate!6!!element],
-	   NULL AS [RefNumber!7!!element],
+	   InvoiceNumber AS [RefNumber!7!!element],
 	   NULL AS [SalesRepRef!8!FullName!element],
 	   NULL AS [IsToBePrinted!9!!element],
 	   NULL AS [IsToBeEmailed!10!!element],
@@ -412,6 +438,7 @@ SELECT DISTINCT 18 AS Tag,
 	   NULL AS [ClassRef!16!FullName!element],
 	   NULL AS [Other1!17!!element],
 	   (SELECT CONVERT(VARCHAR(10), LogDate, 120)) AS [Other2!18!!element]
-	   FROM BillingData	   
-	   ORDER BY [CustomerRef!4!FullName!element], [InvoiceLineAdd!11!Sort!hide]
-	   FOR XML EXPLICIT, ROOT ('QBXML')
+FROM BillingData WHERE ServiceTeam LIKE 'AIR'	   
+ORDER BY [CustomerRef!4!FullName!element],[RefNumber!7!!element],[InvoiceLineAdd!11!Sort!hide], Tag
+FOR XML EXPLICIT, ROOT ('QBXML')
+END
