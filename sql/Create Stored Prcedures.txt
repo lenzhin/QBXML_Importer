@@ -1,0 +1,4 @@
+Run these in QBXML database.
+
+TODO
+Make stored procedures more generic

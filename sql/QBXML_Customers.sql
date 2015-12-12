@@ -1,6 +1,6 @@
 USE [QBXML]
 GO
-/****** Object:  StoredProcedure [dbo].[02CreateQBXMLAirCustomers]    Script Date: 12/11/2015 3:30:27 PM ******/
+/****** Object:  StoredProcedure [dbo].[02CreateQBXMLCustomers]    Script Date: 12/11/2015 3:30:27 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -27,7 +27,7 @@ SELECT DISTINCT 1 AS Tag,
 	   NULL AS [CustomerTypeRef!8!FullName!element],
 	   NULL AS [SalesRepRef!9!FullName!element],
 	   NULL AS [AccountNumber!10!!element]
-	   FROM AirCustomers
+	   FROM Customers
 	   UNION ALL
 	   SELECT DISTINCT 2 AS Tag,
        1 AS Parent,
@@ -47,7 +47,7 @@ SELECT DISTINCT 1 AS Tag,
 	   NULL AS [CustomerTypeRef!8!FullName!element],
 	   NULL AS [SalesRepRef!9!FullName!element],
 	   NULL AS [AccountNumber!10!!element]
-	   FROM AirCustomers
+	   FROM Customers
 	   UNION ALL
 	   SELECT DISTINCT 3 AS Tag,
        2 AS Parent,
@@ -67,7 +67,7 @@ SELECT DISTINCT 1 AS Tag,
 	   NULL AS [CustomerTypeRef!8!FullName!element],
 	   NULL AS [SalesRepRef!9!FullName!element],
 	   NULL AS [AccountNumber!10!!element]
-	   FROM AirCustomers
+	   FROM Customers
 	   UNION ALL
 	   SELECT DISTINCT 4 AS Tag,
        3 AS Parent,
@@ -87,7 +87,7 @@ SELECT DISTINCT 1 AS Tag,
 	   NULL AS [CustomerTypeRef!8!FullName!element],
 	   NULL AS [SalesRepRef!9!FullName!element],
 	   NULL AS [AccountNumber!10!!element]
-	   FROM AirCustomers
+	   FROM Customers
 	   UNION ALL
 	   SELECT DISTINCT 5 AS Tag,
        3 AS Parent,
@@ -107,7 +107,7 @@ SELECT DISTINCT 1 AS Tag,
 	   NULL AS [CustomerTypeRef!8!FullName!element],
 	   NULL AS [SalesRepRef!9!FullName!element],
 	   NULL AS [AccountNumber!10!!element]
-	   FROM AirCustomers
+	   FROM Customers
 	   UNION ALL
 	   SELECT DISTINCT 6 AS Tag,
        3 AS Parent,
@@ -127,7 +127,7 @@ SELECT DISTINCT 1 AS Tag,
 	   NULL AS [CustomerTypeRef!8!FullName!element],
 	   NULL AS [SalesRepRef!9!FullName!element],
 	   NULL AS [AccountNumber!10!!element]
-	   FROM AirCustomers
+	   FROM Customers
 	    UNION ALL
 	   SELECT DISTINCT 7 AS Tag,
        3 AS Parent,
@@ -147,7 +147,7 @@ SELECT DISTINCT 1 AS Tag,
 	   NULL AS [CustomerTypeRef!8!FullName!element],
 	   NULL AS [SalesRepRef!9!FullName!element],
 	   NULL AS [AccountNumber!10!!element]
-	   FROM AirCustomers
+	   FROM Customers
 	   	    UNION ALL
 	   SELECT DISTINCT 8 AS Tag,
        3 AS Parent,
@@ -167,7 +167,7 @@ SELECT DISTINCT 1 AS Tag,
 	   CustType AS [CustomerTypeRef!8!FullName!element],
 	   NULL AS [SalesRepRef!9!FullName!element],
 	   NULL AS [AccountNumber!10!!element]
-	   FROM AirCustomers
+	   FROM Customers
 	   	    UNION ALL
 	   SELECT DISTINCT 9 AS Tag,
        3 AS Parent,
@@ -187,7 +187,7 @@ SELECT DISTINCT 1 AS Tag,
 	   NULL AS [CustomerTypeRef!8!FullName!element],
 	   Rep AS [SalesRepRef!9!FullName!element],
 	   NULL AS [AccountNumber!10!!element]
-	   FROM AirCustomers
+	   FROM Customers
 	   UNION ALL
 	   SELECT DISTINCT 10 AS Tag,
        3 AS Parent,
@@ -207,7 +207,7 @@ SELECT DISTINCT 1 AS Tag,
 	   NULL AS [CustomerTypeRef!8!FullName!element],
 	   NULL AS [SalesRepRef!9!FullName!element],
 	   SubscriberID AS [AccountNumber!10!!element]
-	   FROM AirCustomers
+	   FROM Customers
 	   ORDER BY [CustomerAdd!3!Name!element]
 	   FOR XML EXPLICIT, ROOT ('QBXML')
 END

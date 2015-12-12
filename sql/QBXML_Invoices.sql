@@ -1,11 +1,11 @@
 USE [QBXML]
 GO
-/****** Object:  StoredProcedure [dbo].[04CreateQBXMLAirInvoices]    Script Date: 12/11/2015 3:32:39 PM ******/
+/****** Object:  StoredProcedure [dbo].[02CreateQBXMLInvoices]    Script Date: 12/11/2015 3:32:39 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-ALTER PROCEDURE [dbo].[04CreateQBXMLInvoices]
+ALTER PROCEDURE [dbo].[02CreateQBXMLInvoices]
 AS
 BEGIN
 	SET NOCOUNT ON;
@@ -31,7 +31,7 @@ SELECT DISTINCT 1 AS Tag,
 	   NULL AS [Other1!17!!element],
 	   NULL AS [Other2!18!!element]
 FROM   BillingData 
-WHERE ServiceTeam LIKE 'AIR'
+
 UNION ALL
 SELECT DISTINCT 2 AS Tag,
        1 AS Parent,
@@ -55,7 +55,7 @@ SELECT DISTINCT 2 AS Tag,
 	   NULL AS [Other1!17!!element],
 	   NULL AS [Other2!18!!element]
 FROM   BillingData 
-WHERE ServiceTeam LIKE 'AIR'
+
 UNION ALL
 SELECT DISTINCT 3 AS Tag,
        2 AS Parent,
@@ -79,7 +79,7 @@ SELECT DISTINCT 3 AS Tag,
 	   NULL AS [Other1!17!!element],
 	   NULL AS [Other2!18!!element]
 FROM   BillingData 
-WHERE ServiceTeam LIKE 'AIR'
+
 UNION ALL
 SELECT DISTINCT 4 AS Tag,
        3 AS Parent,
@@ -103,7 +103,7 @@ SELECT DISTINCT 4 AS Tag,
 	   NULL AS [Other1!17!!element],
 	   NULL AS [Other2!18!!element]
 FROM   BillingData 
-WHERE ServiceTeam LIKE 'AIR'
+
 UNION ALL
 SELECT DISTINCT 5 AS Tag,
        3 AS Parent,
@@ -127,7 +127,7 @@ SELECT DISTINCT 5 AS Tag,
 	   NULL AS [Other1!17!!element],
 	   NULL AS [Other2!18!!element]
 FROM   BillingData 
-WHERE ServiceTeam LIKE 'AIR'
+
 UNION ALL
 SELECT DISTINCT 6 AS Tag,
        3 AS Parent,
@@ -151,7 +151,7 @@ SELECT DISTINCT 6 AS Tag,
 	   NULL AS [Other1!17!!element],
 	   NULL AS [Other2!18!!element]
 FROM   BillingData 
-WHERE ServiceTeam LIKE 'AIR'
+
 UNION ALL
 SELECT DISTINCT 7 AS Tag,
        3 AS Parent,
@@ -175,7 +175,7 @@ SELECT DISTINCT 7 AS Tag,
 	   NULL AS [Other1!17!!element],
 	   NULL AS [Other2!18!!element]
 FROM   BillingData 
-WHERE ServiceTeam LIKE 'AIR'
+
 UNION ALL
 SELECT DISTINCT 8 AS Tag,
        3 AS Parent,
@@ -199,7 +199,7 @@ SELECT DISTINCT 8 AS Tag,
 	   NULL AS [Other1!17!!element],
 	   NULL AS [Other2!18!!element]
 FROM   BillingData 
-WHERE ServiceTeam LIKE 'AIR'
+
 UNION ALL
 SELECT DISTINCT 9 AS Tag,
        3 AS Parent,
@@ -223,7 +223,7 @@ SELECT DISTINCT 9 AS Tag,
 	   NULL AS [Other1!17!!element],
 	   NULL AS [Other2!18!!element]
 FROM   BillingData 
-WHERE ServiceTeam LIKE 'AIR'
+
 UNION ALL
 SELECT DISTINCT 10 AS Tag,
        3 AS Parent,
@@ -247,7 +247,7 @@ SELECT DISTINCT 10 AS Tag,
 	   NULL AS [Other1!17!!element],
 	   NULL AS [Other2!18!!element]
 FROM   BillingData 
-WHERE ServiceTeam LIKE 'AIR'
+
 UNION ALL
 SELECT 11 AS Tag,
        3 AS Parent,
@@ -271,7 +271,7 @@ SELECT 11 AS Tag,
 	   NULL AS [Other1!17!!element],
 	   NULL AS [Other2!18!!element]
 FROM   BillingData 
-WHERE ServiceTeam LIKE 'AIR'
+
 UNION ALL
 SELECT  12 AS Tag,
         11 AS Parent,
@@ -295,7 +295,7 @@ SELECT  12 AS Tag,
 	   NULL AS [Other1!17!!element],
 	   NULL AS [Other2!18!!element]
 FROM   BillingData 
-WHERE ServiceTeam LIKE 'AIR'
+
 UNION ALL
 SELECT 13 AS Tag,
        11 AS Parent,
@@ -319,7 +319,7 @@ SELECT 13 AS Tag,
 	   NULL AS [Other1!16!!element],
 	   NULL AS [Other2!17!!element]
 FROM   BillingData 
-WHERE ServiceTeam LIKE 'AIR'
+
 UNION ALL
 SELECT 14 AS Tag,
        11 AS Parent,
@@ -343,7 +343,7 @@ SELECT 14 AS Tag,
 	   NULL AS [Other1!17!!element],
 	   NULL AS [Other2!18!!element]
 FROM BillingData 
-WHERE ServiceTeam LIKE 'AIR'
+
 UNION ALL
 SELECT DISTINCT 15 AS Tag,
        11 AS Parent,
@@ -367,7 +367,7 @@ SELECT DISTINCT 15 AS Tag,
 	   NULL AS [Other1!17!!element],
 	   NULL AS [Other2!18!!element]
 FROM BillingData 
-WHERE ServiceTeam LIKE 'AIR'
+
 UNION ALL
 SELECT DISTINCT 16 AS Tag,
        11 AS Parent,
@@ -391,7 +391,7 @@ SELECT DISTINCT 16 AS Tag,
 	   NULL AS [Other1!17!!element],
 	   NULL AS [Other2!18!!element]
 FROM BillingData 
-WHERE ServiceTeam LIKE 'AIR'
+
 UNION ALL
 SELECT DISTINCT 17 AS Tag,
        11 AS Parent,
@@ -415,7 +415,7 @@ SELECT DISTINCT 17 AS Tag,
 	   Payment AS [Other1!17!!element],
 	   NULL AS [Other2!18!!element]
 FROM BillingData 
-WHERE ServiceTeam LIKE 'AIR'
+
 UNION ALL
 SELECT DISTINCT 18 AS Tag,
        11 AS Parent,
@@ -438,7 +438,7 @@ SELECT DISTINCT 18 AS Tag,
 	   NULL AS [ClassRef!16!FullName!element],
 	   NULL AS [Other1!17!!element],
 	   (SELECT CONVERT(VARCHAR(10), LogDate, 120)) AS [Other2!18!!element]
-FROM BillingData WHERE ServiceTeam LIKE 'AIR'	   
+FROM BillingData 	   
 ORDER BY [CustomerRef!4!FullName!element],[RefNumber!7!!element],[InvoiceLineAdd!11!Sort!hide], Tag
 FOR XML EXPLICIT, ROOT ('QBXML')
 END

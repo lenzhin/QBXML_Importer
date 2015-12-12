@@ -1,6 +1,6 @@
 USE [QBXML]
 GO
-/****** Object:  StoredProcedure [dbo].[03CreateQBXMLAirPayments]    Script Date: 12/11/2015 3:31:53 PM ******/
+/****** Object:  StoredProcedure [dbo].[03CreateQBXMLPayments]    Script Date: 12/11/2015 3:31:53 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -22,7 +22,7 @@ SELECT DISTINCT 1 AS Tag,
 	   NULL AS [Memo!9!!element],
 	   NULL AS [DepositToAccountRef!10!FullName!element],
 	   NULL AS [IsAutoApply!11!!element]
-FROM   Payments WHERE ServiceTeam LIKE 'AIR'
+FROM   Payments 
 UNION ALL
 SELECT DISTINCT 2 AS Tag,
        1 AS Parent,
@@ -37,7 +37,7 @@ SELECT DISTINCT 2 AS Tag,
 	   NULL AS [Memo!9!!element],
 	   NULL AS [DepositToAccountRef!10!FullName!element],
 	   NULL AS [IsAutoApply!11!!element]
-FROM   Payments WHERE ServiceTeam LIKE 'AIR'
+FROM   Payments 
 UNION ALL
 SELECT DISTINCT 3 AS Tag,
        2 AS Parent,
@@ -52,7 +52,7 @@ SELECT DISTINCT 3 AS Tag,
 	   NULL AS [Memo!9!!element],
 	   NULL AS [DepositToAccountRef!10!FullName!element],
 	   NULL AS [IsAutoApply!11!!element]
-FROM   Payments WHERE ServiceTeam LIKE 'AIR'
+FROM   Payments 
 UNION ALL
 SELECT DISTINCT 4 AS Tag,
        3 AS Parent,
@@ -67,7 +67,7 @@ SELECT DISTINCT 4 AS Tag,
 	   NULL AS [Memo!9!!element],
 	   NULL AS [DepositToAccountRef!10!FullName!element],
 	   NULL AS [IsAutoApply!11!!element]
-FROM   Payments WHERE ServiceTeam LIKE 'AIR'
+FROM   Payments 
 UNION ALL
 SELECT DISTINCT 5 AS Tag,
        3 AS Parent,
@@ -82,7 +82,7 @@ SELECT DISTINCT 5 AS Tag,
 	   NULL AS [Memo!9!!element],
 	   NULL AS [DepositToAccountRef!10!FullName!element],
 	   NULL AS [IsAutoApply!11!!element]
-FROM  Payments WHERE ServiceTeam LIKE 'AIR'
+FROM  Payments 
 UNION ALL
 SELECT DISTINCT 6 AS Tag,
        3 AS Parent,
@@ -97,7 +97,7 @@ SELECT DISTINCT 6 AS Tag,
 	   NULL AS [Memo!9!!element],
 	   NULL AS [DepositToAccountRef!10!FullName!element],
 	   NULL AS [IsAutoApply!11!!element]
-FROM   Payments WHERE ServiceTeam LIKE 'AIR'
+FROM   Payments 
 UNION ALL
 SELECT DISTINCT 7 AS Tag,
        3 AS Parent,
@@ -112,7 +112,7 @@ SELECT DISTINCT 7 AS Tag,
 	   NULL AS [Memo!9!!element],
 	   NULL AS [DepositToAccountRef!10!FullName!element],
 	   NULL AS [IsAutoApply!11!!element]
-FROM  Payments WHERE ServiceTeam LIKE 'AIR'
+FROM  Payments 
 UNION ALL
 SELECT DISTINCT 8 AS Tag,
        3 AS Parent,
@@ -127,7 +127,7 @@ SELECT DISTINCT 8 AS Tag,
 	   NULL AS [Memo!9!!element],
 	   NULL AS [DepositToAccountRef!10!FullName!element],
 	   NULL AS [IsAutoApply!11!!element]
-FROM   Payments WHERE ServiceTeam LIKE 'AIR'
+FROM   Payments 
 UNION ALL
 SELECT DISTINCT 9 AS Tag,
        3 AS Parent,
@@ -142,7 +142,7 @@ SELECT DISTINCT 9 AS Tag,
 	   'PAYMENT/DISCOUNT' AS [Memo!9!!element],
 	   NULL AS [DepositToAccountRef!10!FullName!element],
 	   NULL AS [IsAutoApply!11!!element]
-FROM  Payments WHERE ServiceTeam LIKE 'AIR'
+FROM  Payments 
 UNION ALL
 SELECT DISTINCT 10 AS Tag,
        3 AS Parent,
@@ -157,7 +157,7 @@ SELECT DISTINCT 10 AS Tag,
 	   NULL AS [Memo!9!!element],
 	   'Credit Card Payments' AS [DepositToAccountRef!10!FullName!element],
 	   NULL AS [IsAutoApply!11!!element]
-FROM  Payments WHERE ServiceTeam LIKE 'AIR'
+FROM  Payments 
 UNION ALL
 SELECT DISTINCT 11 AS Tag,
        3 AS Parent,
@@ -172,7 +172,7 @@ SELECT DISTINCT 11 AS Tag,
 	   NULL AS [Memo!9!!element],
 	   NULL AS [DepositToAccountRef!10!FullName!element],
 	   'true' AS [IsAutoApply!11!!element]
-FROM   Payments WHERE ServiceTeam LIKE 'AIR'
+FROM   Payments 
 ORDER BY [CustomerRef!4!FullName!element],[RefNumber!6!!element],Tag
 FOR XML EXPLICIT, ROOT ('QBXML')
 END
